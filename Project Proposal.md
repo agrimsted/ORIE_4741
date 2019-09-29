@@ -1,7 +1,5 @@
 # Project Proposal 
 
-### CitiBike Station Prediction
-
 Callie Busch, Allison Grimsted & Jasmine Ng 
 
 ### Context:

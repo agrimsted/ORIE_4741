@@ -49,9 +49,7 @@ This scatterplot shows the relationship between the total precipitation in a day
 We first trained a basic linear regression on the weather and Citibike features with one hot encoding for nominal features. We used a simple train and test split. We scrambled the data and assigned the first 80% to the training set. The training set had an error of 2.33e8 and the test set had an error of 2.01e8. 
 
 We have two hypothesis regarding why our current error rates are so large:
-1. Response outliers.
-..* If a trip_duration outlier (say the ride lasts over 1 million seconds, which does occur in our dataset) is fit by our regression, it will slightly skew our predictor weights because our current loss function in quadratic. 
-..* Likewise, if a trip_duration outlier is added to the test set, its predicted value could be millions of seconds off. This balloons our MSE. 
+1. Response outliers. If a trip_duration outlier (say the ride lasts over 1 million seconds, which does occur in our dataset) is fit by our regression, it will slightly skew our predictor weights because our current loss function in quadratic. Likewise, if a trip_duration outlier is added to the test set, its predicted value could be millions of seconds off. This balloons our MSE. 
 2. Our numerical variables like precipitation and hour have not been optimally transformed. 
 
 

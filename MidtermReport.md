@@ -22,6 +22,7 @@ Weather data was added from Weather Source, which collects weather data from loc
 * **total_precipitation_inches**
 * **average_temperature_farenheit**
 * **total_snowfall_inches**
+
 After one hot encoding all the features, we had 803 features and an offset. 
 
 ### Cleaning & Unreliable Data

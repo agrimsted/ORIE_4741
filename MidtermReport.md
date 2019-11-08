@@ -35,10 +35,15 @@ Overall, we removed 2,220 rows out of 600,000.
 ### Exploratory Analysis & Visualisations
 
 This histogram shows the distribution of trip duration in seconds, our response. Most of the trip durations are under 2000 seconds.
+
 ![p2.png](Midterm_Viz/p2.png) 
+
 We created a box plot for each group of month in the year. We see that the shape is like a bell curve that peaks at the month of June (or in this graph, 6). We also see less variability in colder months. 
+
 ![p4.png](Midterm_Viz/p4.png)
+
 This scatterplot shows the relationship between the total precipitation in a day (in inches) and trip duration. There is a fan pattern, so we need to perform a log transformation in the future. (This plot excludes high outliers for trip duration for readability.) Generally, users are more likely to have longer bike rides when there isn’t precipitation. 
+
 ![p5.png](Midterm_Viz/p5.png)
 
 ### First Models 

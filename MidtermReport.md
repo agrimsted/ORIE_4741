@@ -39,11 +39,11 @@ We created a box plot for each group of month in the year. We see that the shape
 
 
 This histogram shows the distribution of trip duration in seconds, our response. Most of the trip durations are under 2000 seconds.
-![p2.png](attachment:p2.png) 
+![p2.png](Midterm_Viz/p2.png) 
 We created a box plot for each group of month in the year. We see that the shape is like a bell curve that peaks at the month of June (or in this graph, 6). We also see less variability in colder months. 
-![p4.png](attachment:p4.png)
+![p4.png](Midterm_Viz/p4.png)
 This scatterplot shows the relationship between the total precipitation in a day (in inches) and trip duration. There is a fan pattern, so we need to perform a log transformation in the future. (This plot excludes high outliers for trip duration for readability.) Generally, users are more likely to have longer bike rides when there isn’t precipitation. 
-![p5.png](attachment:p5.png)
+![p5.png](Midterm_Viz/p5.png)
 
 ### First Models 
 We first trained a basic linear regression on the weather and Citibike features with one hot encoding for nominal features. We used a simple train and test split. We scrambled the data and assigned the first 80% to the training set. The training set had an error of 2.33e8 and the test set had an error of 2.01e8. 

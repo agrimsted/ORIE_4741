@@ -8,7 +8,7 @@ We used the CitiBike data from [CitiBikeNYC.com.](https://s3.amazonaws.com/tripd
 
 The following features were extracted from CitiBike data: 
 * **Trip_duration** is the dependent variable. It is a nonnegative real number where the time is measured in seconds. 
-* **Start_month** is a nominal feature with numbers from 1-12. This feature is nominal as opposed to numerical because the relationship between months is not linear; the seasons are cyclical. Plan to test both categorical treatments and quadratic numerical treatments of this variable. 
+* **Start_month** is a nominal feature with numbers from 1-12. This feature is nominal as opposed to numerical because the relationship between months is not linear; the seasons are cyclical. We plan to test both categorical treatments and quadratic numerical treatments of this variable. 
 * **Start_hour** is an integer from 0-23. We tested encoding start_hour as nominal and the test mean square error increased by .005%. 
 * **Start_station_id** is a nominal value and it is the geographic feature of our model. 
 * **User_type** is a binary variable. The user is either a customer or a subscriber. 

@@ -1,0 +1,69 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+#Clean and split.
+df = read.csv("less_than_1_hr.csv")
+df$X = NULL
+#summary(df)
+df$start_station_id = as.factor(df$start_station_id)
+df$gender = as.factor(df$gender)
+df$week_day = as.character(df$week_day)
+
+
+df
+head(df)
+int_df = df
+int_df$start_station_id = NULL
+int_df$user_type = NULL
+int_df$gender = NULL
+int_df$week_day = NULL
+int_df$start_hour_sq = NULL
+int_df$start_month_sq = NULL
+cor(int_df)
+
+library(corrplot)
+corrplot(cor(int_df), method="circle", type = "upper", main = "Figure 8")
+
+smp_siz = floor(0.75*nrow(df))
+set.seed(123)   # set seed to ensure you always have same random numbers generated
+train_ind = sample(seq_len(nrow(df)),size = smp_siz)  # Randomly identifies therows equal to sample size ( defined in previous instruction) from  all the rows of Smarket dataset and stores the row number in train_ind
+train =df[train_ind,] #creates the training dataset with row numbers stored in train_ind
+test=df[-train_ind,]
+```
+
+
+
+```{r}
+lm1 = lm(train$trip_duration ~ (start_month + I(start_month^2) + start_hour + I(start_hour^2) + user_type + birth_year + gender + average_temperature_farenheit + total_precipitation_inches + week_day)^2, data = train)
+summary(lm1)
+
+#Test and train set errors.
+sum(abs(predict(lm1, test) - test$trip_duration)) / nrow(test)
+sum(abs(predict(lm1, train) - train$trip_duration)) / nrow(train)
+
+#Test for fairness among genders. 
+test_male = subset(test, gender == '1')
+test_female = subset(test, gender == '2')
+male_mae = sum(abs(predict(lm1, test_male) - test_male$trip_duration)) / nrow(test_male)
+female_mae = sum(abs(predict(lm1, test_female) - test_female$trip_duration)) / nrow(test_female)
+male_mae
+female_mae 
+```
+
+```{r}
+# Plots 
+boxplot(df$trip_duration~ df$week_day, xlab = "Day of Week", ylab = "Trip Duration (Seconds)")
+plot()
+
+hist(df$trip_duration, xlab = "Trip Duration", main = "Figure 1", col = "black")
+nrow(df)
+
+plot( df$birth_year, df$trip_duration, xlab = "Birth Year", ylab = "Trip Duration", main = "Trip Duration by Birth Year", pch = 16)
+
+plot( df$total_precipitation_inches, df$trip_duration, xlab = "Percipitation", ylab = "Trip Duration" , main = "Trip Duration by Percipitation", pch = 16)
+```
+
+

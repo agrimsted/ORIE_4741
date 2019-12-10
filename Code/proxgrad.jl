@@ -1,3 +1,4 @@
+# By Madeline Udell
 # module ProximalGradient
 
 using LowRankModels
